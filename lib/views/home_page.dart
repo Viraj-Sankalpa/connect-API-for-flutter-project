@@ -1,7 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:http/http.dart';
 import 'package:sam_api/models/post.dart';
 
 import '../services/remote_services.dart';
@@ -42,6 +39,7 @@ class _HomePageState extends State<HomePage> {
       ),
       body: Visibility(
         visible: isLoaded,
+        // ignore: sort_child_properties_last
         child: ListView.builder(
           itemCount: posts?.length,
           itemBuilder: (context, index) {
@@ -57,7 +55,7 @@ class _HomePageState extends State<HomePage> {
                       color: Colors.grey[300],
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     width: 16,
                   ),
                   Expanded(
@@ -68,7 +66,7 @@ class _HomePageState extends State<HomePage> {
                           posts![index].title,
                           maxLines: 2,
                           overflow: TextOverflow.ellipsis,
-                          style: TextStyle(
+                          style: const TextStyle(
                             fontSize: 24,
                             fontWeight: FontWeight.bold,
                           ),
@@ -77,7 +75,7 @@ class _HomePageState extends State<HomePage> {
                           posts![index].body ?? '',
                           maxLines: 3,
                           overflow: TextOverflow.ellipsis,
-                          style: TextStyle(
+                          style: const TextStyle(
                             fontSize: 18,
                           ),
                         ),
@@ -89,7 +87,7 @@ class _HomePageState extends State<HomePage> {
             );
           },
         ),
-        replacement: Center(
+        replacement: const Center(
           child: CircularProgressIndicator(),
         ),
       ),
